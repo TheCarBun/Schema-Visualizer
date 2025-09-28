@@ -1,0 +1,11 @@
+[project]
+name = "schema-visualizer"
+version = "0.1.0"
+description = "A Streamlit-powered app that transforms complex JSON Schemas into clear, human-readable summaries and visualizations. Perfect for developers, data analysts, and anyone working with API or data schemas"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "google-genai>=1.39.1",
+    "python-dotenv>=1.1.1",
+    "streamlit>=1.50.0",
+]
