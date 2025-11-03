@@ -2,7 +2,7 @@
 
 A Streamlit-powered app that transforms complex JSON Schemas into clear, human-readable summaries and visualizations. Perfect for developers, data analysts, and anyone working with API or data schemas.
 
----
+## ![gif](./SchemaVisualizeredited.gif)
 
 ## ✨ Features
 
