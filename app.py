@@ -195,11 +195,12 @@ if len(schema) > 100:
                                 color = datatype_colors.get(
                                     datatype, "grey")
                                 icon = ":material/radio_button_checked:" if is_required else ":material/radio_button_unchecked:"
-                                badges_txt += f":{color}-badge[{icon} {sub} ({datatype})] "
+                                badges_txt += f":{color}-badge[{icon} {sub}] "
 
                             # --- Display ---
                             # Field name, required count and summary
-                            col1, col2 = st.columns([3, 1])
+                            col1, col2 = st.columns(
+                                [3, 1], vertical_alignment="center")
                             col1.markdown(f'### `{field.field_name}`')
                             with col2:
                                 # Show required fields count
