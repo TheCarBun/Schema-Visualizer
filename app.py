@@ -156,23 +156,23 @@ if len(schema) > 100:
     anl_button = st.sidebar.button("Analyze")
     if anl_button:
         with st.spinner(text="Analyzing Schema...", show_time=True):
-            response = client.models.generate_content(
-                model=model_name,
-                contents=[
-                    types.Part.from_text(text=schema),
-                    instructions
-                ],
-                config={
-                    "response_mime_type": "application/json",
-                    "response_schema": OutputSchema
-                }
-            )
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=[
+                        types.Part.from_text(text=schema),
+                        instructions
+                    ],
+                    config={
+                        "response_mime_type": "application/json",
+                        "response_schema": OutputSchema
+                    }
+                )
 
             # with open('response.json', 'w', encoding='utf-8') as f:
             #     json.dump(response.model_dump_json(indent=2),
             #               f, ensure_ascii=False, indent=2)
 
-            try:
                 response_txt = response.text
                 if response_txt.startswith("```json"):
                     st.json(response.text)
