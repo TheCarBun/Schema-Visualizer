@@ -2,7 +2,7 @@
 from pydantic import BaseModel
 import streamlit as st
 from google import genai
-from google.genai import types
+from google.genai import types, errors
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -211,6 +211,8 @@ if len(schema) > 100:
 
                             st.write(field.summary)
                             st.markdown(badges_txt)
-
+            except errors.ServerError:
+                st.warning(
+                    f"Gemini Model `{model_name}` is overloaded! Please try a different model.")
             except Exception as e:
                 st.error(f"Error: {e}")
